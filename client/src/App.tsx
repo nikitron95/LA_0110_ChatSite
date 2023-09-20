@@ -1,33 +1,19 @@
-import { FormEvent, useEffect, useState } from "react";
-import { socket } from "./lib/socket"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import Login from "./components/Login"
+import { Home } from "./components/Home"
+import Layout from "./components/Layout"
 
 function App() {
-  const [message, setMessage] = useState("")
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-
-    const message = e.currentTarget.message.value
-    socket.emit("message", message)
-    setMessage(message)
-  }
-
-  useEffect(() => {
-    socket.on("message", data => {
-      setMessage(data)
-    })
-  })
-
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Message" name="message" />
-        <button>Send</button>
-      </form>
-      <div>{message}</div>
-      {/* <Login/>
-    <ChattingPage/> */}
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
+      </Routes>
+    </Router>
+  )
 }
-export default App;
+
+export default App
