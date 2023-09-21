@@ -10,34 +10,34 @@ export function ContactList({ setRoom }: ContactListProps) {
       <button
         onClick={() => {
           setRoom("Elvis")
-          socket.emit("join-room", "Elvis")
+          socket.emit("join-room", "Room 1")
         }}
       >
-        Elvis
+        Room 1
       </button>
       <button
         onClick={() => {
           setRoom("Julian")
-          socket.emit("join-room", "Julian")
+          socket.emit("join-room", "Room 2")
         }}
       >
-        Julian
+        Room 2
       </button>
       <button
         onClick={() => {
           setRoom("Anto")
-          socket.emit("join-room", "Anto")
+          socket.emit("join-room", "Room 3")
         }}
       >
-        Anto
+        Room 3
       </button>
       <button
         onClick={() => {
           setRoom("Nikola")
-          socket.emit("join-room", "Nikola")
+          socket.emit("join-room", "Room Niger")
         }}
       >
-        Nikola
+        Room Niger
       </button>
       <button
         onClick={() => {
